@@ -24,7 +24,7 @@ OBJ_DIR = obj
 OBJS = $(RAW_SRCS:%=$(OBJ_DIR)/%.o)
 OBJ_DIRS := $(sort $(dir $(OBJS)))
 
-PROJECT_DIR = ../
+PROJECT_DIR = ..
 PROJECT = $(PROJECT_DIR)/sifl
 CPPFLAGS += -I$(PROJECT_DIR)
 
