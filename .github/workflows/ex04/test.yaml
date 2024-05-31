@@ -1,0 +1,39 @@
+name: ex04 Test Workflow
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'ex04/**'
+  push:
+    paths:
+      - 'ex04/**'
+    branches:
+      - main
+      - eval
+
+jobs:
+  compilation_test:
+    name: Compilation Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+      - name: Setup System
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential cmake
+          cd lib/googletest
+          mkdir build
+          cd build
+          cmake ..
+          make
+      - name: Build Tests
+        run: |
+          cd ex04/tests
+          make
+      - name: Run Tests
+        run: |
+          cd ex04/tests
+          ./tests
