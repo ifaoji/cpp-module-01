@@ -50,8 +50,6 @@ re: fclean all
 	$(MAKE) -C $(PROJECT_DIR) re
 
 $(NAME): $(PROJECT) $(OBJS) $(GTEST_LIB) $(GTEST_MAIN_LIB)
-	echo "Current working directory: $$(pwd)"
-	ls "$$(pwd)/.."
 	$(CXX) $(LDFLAGS) $(OBJS) $(PROJECT_OBJS) -o $@ $(LDLIBS)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIRS)
