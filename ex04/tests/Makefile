@@ -57,11 +57,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIRS)
 
 $(GTEST_BUILD_DIR):
 	mkdir -p $(GTEST_BUILD_DIR)
-	cd $(GTEST_BUILD_DIR) && cmake ..
-	cd $(GTEST_BUILD_DIR) && make
+	cmake -S $(GTEST_DIR) -B $(GTEST_BUILD_DIR)
+	$(MAKE) -C $(GTEST_BUILD_DIR)
 
 $(GTEST_LIB): $(GTEST_BUILD_DIR)
-	cd $(GTEST_BUILD_DIR) && make
+	$(MAKE) -C $(GTEST_BUILD_DIR)
 
 $(GTEST_MAIN_LIB): $(GTEST_LIB)
 
