@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout source branch
         uses: actions/checkout@v4
+        with:
+          submodules: true
+
       - name: Setup System
         run: |
           sudo apt update
@@ -29,10 +32,12 @@ jobs:
           cd build
           cmake ..
           make
+
       - name: Build Tests
         run: |
           cd ex04/tests
           make
+
       - name: Run Tests
         run: |
           cd ex04/tests
