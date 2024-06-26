@@ -14,5 +14,11 @@ t_error check_args(int argc, char **argv, t_args &args) {
   args.search = argv[2];
   args.replace = argv[3];
 
+  if (args.search.empty()) {
+    std::cout << "Error: Cannot search for an empty string." << std::endl;
+
+    return ERROR_ARGS;
+  }
+
   return SUCCESS;
 }
