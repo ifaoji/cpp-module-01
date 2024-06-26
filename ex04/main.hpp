@@ -3,6 +3,7 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
+#include <fstream>
 #include <string>
 
 typedef enum {
@@ -18,5 +19,8 @@ typedef struct {
 } t_args;
 
 t_error check_args(int argc, char **argv, t_args &args);
+
+std::string replace(std::ifstream &input_file, std::string search,
+                    std::string replace);
 
 #endif

@@ -27,21 +27,21 @@ int main(int argc, char **argv) {
     return (error);
 
   std::ifstream ifile(args.file.c_str());
+  if (ifile.fail()) {
+    perror("Failed to open input file");
 
-  ifile.close();
-  std::stringstream buf;
-  buf << ifile.rdbuf();
-  std::cout << buf.fail();
+    return ERROR_OPEN_FILE;
+  }
 
-  std::string ofilename = args.file + ".replace";
-  std::ofstream file(ofilename.c_str());
+  std::string result = replace(ifile, args.search, args.replace);
+
+  std::ofstream file((args.file + ".replace").c_str());
   if (file.fail()) {
     perror("Failed to open file");
 
     return ERROR_OPEN_FILE;
   }
-
-  file << buf.str();
+  file << result;
 
   file.close();
 }

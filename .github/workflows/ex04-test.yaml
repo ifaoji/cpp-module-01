@@ -1,3 +1,5 @@
+# TODO: Action does not use clang12 for compiling
+
 name: ex04 Test Workflow
 
 on:

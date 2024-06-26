@@ -6,6 +6,7 @@ LDLIBS =
 
 RAW_SRCS =	main \
 			check_args \
+			replace \
 
 SRC_DIR = ./
 SRCS = $(RAW_SRCS:%=$(SRC_DIR)/%.cpp)
