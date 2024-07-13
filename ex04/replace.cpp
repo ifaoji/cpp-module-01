@@ -5,7 +5,6 @@
 
 std::string replace(std::ifstream &input_file, std::string search,
                     std::string replace) {
-
   std::stringstream buffer;
   buffer << input_file.rdbuf();
   std::string str = buffer.str();
