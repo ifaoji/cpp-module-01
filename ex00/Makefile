@@ -1,5 +1,5 @@
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP -Iinclude
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD -MP
 CPPFLAGS = 
 LDFLAGS =
 LDLIBS =
@@ -9,7 +9,7 @@ RAW_SRCS =	main \
 			newZombie \
 			randomChump \
 
-SRC_DIR = src
+SRC_DIR = ./
 SRCS = $(RAW_SRCS:%=$(SRC_DIR)/%.cpp)
 
 OBJ_DIR = obj
