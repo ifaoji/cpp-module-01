@@ -14,8 +14,6 @@ private:
   void info(void);
   void warning(void);
   void error(void);
-
-  void log(std::string level, std::string log);
 };
 
 #endif
