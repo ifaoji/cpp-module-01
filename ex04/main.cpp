@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 
   std::ofstream file((args.file + ".replace").c_str());
   if (file.fail()) {
-    perror("Failed to open file");
+    perror("Failed to open output file");
 
     return ERROR_OPEN_FILE;
   }
